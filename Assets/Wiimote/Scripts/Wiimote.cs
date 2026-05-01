@@ -355,7 +355,7 @@ public class Wiimote
     /// If there is no Wii Motion Plus connected, undefined behavior may occur on the Wii Remote.
     public bool ActivateWiiMotionPlus()
     {
-        if (!wmp_attached)
+        if (!wmp_attached && _Type != WiimoteType.WIIMOTEPLUS)
             Debug.LogWarning("There is a request to activate the Wii Motion Plus even though it has not been confirmed to exist!  Trying anyway.");
 
         // Initialize the Wii Motion Plus by writing 0x55 to register 0xA600F0
