@@ -18,14 +18,17 @@ PluginImporter:
         AndroidSharedLibraryType: Executable
         CPU: ARMv7
     Any:
-      enabled: 1
+      enabled: 0
       settings:
         Exclude Android: 1
         Exclude Editor: 0
         Exclude Linux64: 1
         Exclude OSXUniversal: 0
+        Exclude WebGL: 1
         Exclude Win: 1
         Exclude Win64: 1
+        Exclude WindowsStoreApps: 1
+        Exclude iOS: 1
     Editor:
       enabled: 1
       settings:
@@ -48,6 +51,21 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: None
+    WindowsStoreApps:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+        DontProcess: false
+        PlaceholderPath: 
+        SDK: AnySDK
+        ScriptingBackend: AnyScriptingBackend
+    iOS:
+      enabled: 0
+      settings:
+        AddToEmbeddedBinaries: false
+        CPU: AnyCPU
+        CompileFlags: 
+        FrameworkDependencies: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 
