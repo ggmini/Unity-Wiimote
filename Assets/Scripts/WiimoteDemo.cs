@@ -146,7 +146,7 @@ public class WiimoteDemo : MonoBehaviour {
         GUILayout.Label("WMP Attached: " + wiimote.wmp_attached);
         if (GUILayout.Button("Request Identify WMP"))
             wiimote.RequestIdentifyWiiMotionPlus();
-        if ((wiimote.wmp_attached || wiimote.Type == WiimoteType.PROCONTROLLER) && GUILayout.Button("Activate WMP"))
+        if ((wiimote.wmp_attached || wiimote.Type == WiimoteType.WIIMOTEPLUS || wiimote.Type == WiimoteType.PROCONTROLLER) && GUILayout.Button("Activate WMP"))
             wiimote.ActivateWiiMotionPlus();
         if ((wiimote.current_ext == ExtensionController.MOTIONPLUS ||
             wiimote.current_ext == ExtensionController.MOTIONPLUS_CLASSIC ||
