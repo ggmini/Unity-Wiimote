@@ -106,8 +106,10 @@ public class WiimoteDemo : MonoBehaviour {
             wiimote = null;
         }
 
-        if (wiimote == null)
+        if (wiimote == null) {
+            GUILayout.EndVertical();
             return;
+        }
 
         GUILayout.Label("Extension: " + wiimote.current_ext.ToString());
 
