@@ -59,8 +59,12 @@ public class WiimoteManager
         IntPtr ptr = HIDapi.hid_enumerate(vendor, product);
         IntPtr cur_ptr = ptr;
 
-        if (ptr == IntPtr.Zero)
+        if (ptr == IntPtr.Zero) {
+            HIDapi.hid_free_enumeration(ptr);
+            Debug.Log("No Wiimotes found!");
             return false;
+        }
+            
 
         hid_device_info enumerate = (hid_device_info)Marshal.PtrToStructure(ptr, typeof(hid_device_info));
 
@@ -84,6 +88,8 @@ public class WiimoteManager
             if (remote == null)
             {
                 IntPtr handle = HIDapi.hid_open_path(enumerate.path);
+                if (handle == IntPtr.Zero)
+                    Debug.LogError("Failed to open HID device."); //Possinbly a permissions issue on Linux
 
                 WiimoteType trueType = type;
 
