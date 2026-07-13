@@ -35,9 +35,9 @@ public class WiimoteDemo : MonoBehaviour {
             ret = wiimote.ReadWiimoteData();
 
             if (ret > 0 && wiimote.current_ext == ExtensionController.MOTIONPLUS) {
-                Vector3 offset = new Vector3(  -wiimote.MotionPlus.PitchSpeed,
-                                                wiimote.MotionPlus.YawSpeed,
-                                                wiimote.MotionPlus.RollSpeed) / 95f; // Divide by 95Hz (average updates per second from wiimote)
+                Vector3 offset = new Vector3(  wiimote.MotionPlus.PitchSpeed,
+                                                -wiimote.MotionPlus.YawSpeed,
+                                                -wiimote.MotionPlus.RollSpeed) / 95f; // Divide by 95Hz (average updates per second from wiimote)
                 wmpOffset += offset;
 
                 model.rot.Rotate(offset, Space.Self);
@@ -106,8 +106,10 @@ public class WiimoteDemo : MonoBehaviour {
             wiimote = null;
         }
 
-        if (wiimote == null)
+        if (wiimote == null) {
+            GUILayout.EndVertical();
             return;
+        }
 
         GUILayout.Label("Extension: " + wiimote.current_ext.ToString());
 
@@ -146,7 +148,7 @@ public class WiimoteDemo : MonoBehaviour {
         GUILayout.Label("WMP Attached: " + wiimote.wmp_attached);
         if (GUILayout.Button("Request Identify WMP"))
             wiimote.RequestIdentifyWiiMotionPlus();
-        if ((wiimote.wmp_attached || wiimote.Type == WiimoteType.PROCONTROLLER) && GUILayout.Button("Activate WMP"))
+        if ((wiimote.wmp_attached || wiimote.Type == WiimoteType.WIIMOTEPLUS || wiimote.Type == WiimoteType.PROCONTROLLER) && GUILayout.Button("Activate WMP"))
             wiimote.ActivateWiiMotionPlus();
         if ((wiimote.current_ext == ExtensionController.MOTIONPLUS ||
             wiimote.current_ext == ExtensionController.MOTIONPLUS_CLASSIC ||
