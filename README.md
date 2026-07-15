@@ -23,7 +23,6 @@ API:
         - More extension controllers coming soon!  Raw data also available for custom extension controllers.
     - Controlling the remote's 4 LEDs
     - Status reporting (battery level, player LED state, etc.)
-    - More features coming soon!
 - **Fully Documented**: The API comes with an example scene in Unity3D that makes use of all of the API's functions.  The
   API itself is well commented and comes with [Doxygen](http://www.stack.nl/~dimitri/doxygen/) documentation.
 - **Open and Growing**: The API is licensed under the generous MIT license (see LICENSE.txt) so you can easily use it
@@ -32,20 +31,6 @@ API:
 Installation
 ------------
 
-The latest release can be found [here](http://www.github.com/Flafla2/Unity-Wiimote/releases)
-
-To install, open Unity-Wiimote.unitypackage or go to Assets->Import Package->Custom Package... in the Unity Editor and locate Unity-Wiimote.unitypackage.
+Download the required files and add them to your Unity Project.
 
 If using Linux, sudo permissions may be required.
-
-Future Changes
---------------
-
-While the API is very powerful already, I would still like to make changes to it to improve it even more.  Namely I would
-like to:
-
-- Add support for all common extension controllers (Classic Controller Pro, etc.)
-    - Add support for Nunchuck passthrough / Classic Controller passthrough mode on the Wii Motion Plus
-- Add speaker support (no small feat!)
-
-If you would like to help implement any of these changes, feel free to submit a pull request!
